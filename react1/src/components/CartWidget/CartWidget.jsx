@@ -1,5 +1,5 @@
 import { FaShoppingCart } from 'react-icons/fa';
-import 'bootstrap/dist/css/bootstrap.min.css';  // Asegúrate de haber instalado Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';  
 
 const CartWidget = () => {
   const cartItemCount = 3;  // Número fijo (hardcodeado) de artículos en el carrito
