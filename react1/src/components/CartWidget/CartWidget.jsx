@@ -1,17 +1,22 @@
+import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { useCart } from '../../context/CartContext';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 
 const CartWidget = () => {
-  const cartItemCount = 3;  // Número fijo (hardcodeado) de artículos en el carrito
+  const { cartItems } = useCart();
+  const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <div className="cart-widget position-relative">
       <FaShoppingCart size={30} />
-      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        {cartItemCount}
-      </span>
+      {cartItemCount > 0 && (
+        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {cartItemCount}
+        </span>
+      )}
     </div>
   );
-}
+};
 
 export default CartWidget;
